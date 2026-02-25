@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class SimpleCalculator {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Welcome to the Simple Calculator!");
+
+        try {
+            // Get user input
+            System.out.print("Enter the first number: ");
+            double num1 = scanner.nextDouble();
+
+            System.out.print("Enter the second number: ");
+            double num2 = scanner.nextDouble();
+
+            // Calculate sum
+            double sum = num1 + num2;
+
+            // Display result
+            System.out.println("The sum of " + num1 + " and " + num2 + " is " + sum);
+
+        } catch (Exception e) {
+            System.out.println("Please enter valid numbers.");
+        }
+
+        scanner.close();
+    }
+}
