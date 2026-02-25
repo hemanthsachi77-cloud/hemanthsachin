@@ -1,0 +1,19 @@
+def main():
+    print("Welcome to the Simple Calculator!")
+
+    try:
+        # Get user input
+        num1 = float(input("Enter the first number: "))
+        num2 = float(input("Enter the second number: "))
+
+        # Calculate sum
+        total = num1 + num2
+
+        # Display result
+        print(f"The sum of {num1} and {num2} is {total}")
+
+    except ValueError:
+        print("Please enter valid numbers.")
+
+if __name__ == "__main__":
+    main()
