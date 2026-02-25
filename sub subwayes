@@ -1,0 +1,53 @@
+import random
+import time
+
+def game():
+    lanes = ["Left", "Middle", "Right"]
+    player_lane = "Middle"
+    score = 0
+    speed = 1.0
+
+    print("🚆 Welcome to Mini Subway Runner! 🚆")
+    print("Avoid the obstacles!\n")
+
+    while True:
+        obstacle_lane = random.choice(lanes)
+
+        print(f"\nObstacle coming in: {obstacle_lane}")
+        print(f"You are in: {player_lane}")
+
+        move = input("Move (left/right/stay): ").lower()
+
+        if move == "left":
+            if player_lane == "Middle":
+                player_lane = "Left"
+            elif player_lane == "Right":
+                player_lane = "Middle"
+
+        elif move == "right":
+            if player_lane == "Middle":
+                player_lane = "Right"
+            elif player_lane == "Left":
+                player_lane = "Middle"
+
+        elif move == "stay":
+            pass
+        else:
+            print("Invalid move!")
+
+        if player_lane == obstacle_lane:
+            print("💥 You crashed! Game Over.")
+            print("Final Score:", score)
+            break
+        else:
+            score += 10
+            print("✅ Safe! Score:", score)
+
+        time.sleep(speed)
+
+        # Increase difficulty
+        if score % 50 == 0:
+            speed *= 0.8
+
+if __name__ == "__main__":
+    game()
