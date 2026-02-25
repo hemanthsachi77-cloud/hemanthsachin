@@ -1,0 +1,42 @@
+import random
+
+def game():
+    player_health = 100
+    enemies = ["Enemy A", "Enemy B", "Enemy C", "Enemy D"]
+    
+    print("🔥 Welcome to Mini Battle Royale! 🔥")
+    print("You have landed on the battlefield.\n")
+
+    while player_health > 0 and enemies:
+        print(f"Your Health: {player_health}")
+        print(f"Enemies remaining: {len(enemies)}")
+        
+        action = input("Choose action (fight/run): ").lower()
+
+        if action == "fight":
+            enemy = random.choice(enemies)
+            print(f"\nYou encountered {enemy}!")
+
+            player_attack = random.randint(10, 30)
+            enemy_attack = random.randint(5, 25)
+
+            print(f"You dealt {player_attack} damage!")
+            print(f"{enemy} dealt {enemy_attack} damage!")
+
+            player_health -= enemy_attack
+            enemies.remove(enemy)
+
+            print(f"{enemy} eliminated!\n")
+
+        elif action == "run":
+            print("You escaped safely!\n")
+        else:
+            print("Invalid action!\n")
+
+    if player_health > 0:
+        print("🏆 Congratulations! You are the winner!")
+    else:
+        print("💀 You were eliminated. Game Over.")
+
+if __name__ == "__main__":
+    game()
